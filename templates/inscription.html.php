@@ -1,6 +1,6 @@
 <?php require 'templates/inc.top.html.php'; ?>
 <div class="container py-5">
-    <div class="row justify-content-center">
+    <div class="row justify-content-around align-items-center">
         <div class="col-12 col-md-4">
             <h1>Inscription</h1>
             <form method="POST">
@@ -53,6 +53,16 @@
                 </div>
                 <button type="submit" class="btn btn-primary" name="registering_form_submit">S'inscrire</button>
             </form>
+        </div>
+
+        <div class="col-12 col-md-4 text-center">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Vous avez déjà un compte chez nous ?</h2>
+                    <p>Connectez-vous au plus vite si vous voulez graille rapidos.</p>
+                    <a href="/connexion.php" class="btn btn-primary btn-lg">Je m'identifie</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

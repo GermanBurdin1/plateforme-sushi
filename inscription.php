@@ -1,5 +1,13 @@
 <?php
 
+// On vérifie si l'utilisateur est en train de valider son panier
+if(str_contains($_SERVER['HTTP_REFERER'], 'panier.php'))
+{
+    // Si c'est le cas on le redirige vers la page d'adresses
+    header('Location: /protected/adresse.php');
+    die;
+}
+
 // Vérifie que le formulaire à bien été envoyé
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registering_form_submit']))
 {
@@ -24,6 +32,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registering_form_submit
     {
         $errors['email'] = 'Le champs Email est obligatoire et doit être une adresse email valide';
     }
+
+    var_dump(preg_match('/[a-zA-Z0-9\!\@\$\€\*\^\§\%\&]{16,32}/', $_POST['password']));
+    exit;
 
     // Validation du champs "Password"
     if(empty($_POST['password']) || !preg_match('/[a-zA-Z0-9\!\@\$\€\*\^\§\%\&]{16,32}/', $_POST['password']))
@@ -62,7 +73,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registering_form_submit
 
             if($dbh->lastInsertId())
             {
-                header('Location: /');
+                header('Location: /connexion.php');
                 exit;
             }
             else

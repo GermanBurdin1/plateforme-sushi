@@ -49,7 +49,7 @@
         </tfoot>
     </table>
     <div class="text-end">
-        <button class="btn btn-primary">Passer la commande</button>
+        <a href="/inscription.php" class="btn btn-primary">Passer la commande</a>
     </div>
     <?php else: ?>
     <div
@@ -63,3 +63,4 @@
 
 </div>
 <?php require 'templates/inc.bottom.html.php'; ?>
+

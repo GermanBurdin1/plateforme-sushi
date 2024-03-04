@@ -6,7 +6,6 @@ session_start();
 
 if(isset($_SESSION['cart']))
 {
-
     $totalCart = 0;
     $cart = array_map(function($meal) use ($dbh, &$totalCart) {
         $query = $dbh->query("SELECT * FROM meal WHERE id_meal = " . $meal['meal_id']);
@@ -25,8 +24,10 @@ if(isset($_SESSION['cart']))
     }, $_SESSION['cart']);
 
     $title = "Panier";
-
-    require 'templates/panier.html.php';
-
-
 }
+else
+{
+    $cart = [];
+}
+
+require 'templates/panier.html.php';
