@@ -2,6 +2,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12 col-md-4">
+            <a href="/protected/adresse.php">Retour au choix des adresses</a>
 			<h1>Ajout d'une nouvelle adresse</h1>
 			<form method="POST">
 				<div class="mb-3">
