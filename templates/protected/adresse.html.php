@@ -5,7 +5,6 @@
             <form action="" method="POST">
                 <fieldset>
                     <legend>Adresse de facturation</legend>
-
                     <?php foreach ($addresses as $address) : ?>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="billing_address" id="billingAddress<?= $address['id_address'] ?>">
@@ -14,13 +13,10 @@
                             </label>
                         </div>
                     <?php endforeach; ?>
-
                 </fieldset>
 
                 <fieldset>
                     <legend>Adresse de livraison</legend>
-
-                    
                     <?php foreach ($addresses as $address) : ?>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="delivery_address" id="deliveryAddress<?= $address['id_address'] ?>">
@@ -29,7 +25,6 @@
                             </label>
                         </div>
                     <?php endforeach; ?>
-
                 </fieldset>
             </form>
 
