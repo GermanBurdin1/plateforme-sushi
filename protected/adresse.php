@@ -16,4 +16,4 @@ $query->execute([
 ]);
 $addresses = $query->fetchAll();
 
-var_dump($addresses);
+require '../templates/protected/adresse.html.php';
