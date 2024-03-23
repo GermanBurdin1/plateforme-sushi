@@ -1,7 +1,7 @@
 <?php
 
 // On vérifie si l'utilisateur est en train de valider son panier
-if(str_contains($_SERVER['HTTP_REFERER'], 'panier.php'))
+if(isset($_SERVER['HTTP_REFERER']) && str_contains($_SERVER['HTTP_REFERER'], 'panier.php'))
 {
     // Si c'est le cas on le redirige vers la page d'adresses
     header('Location: /protected/adresse.php');
