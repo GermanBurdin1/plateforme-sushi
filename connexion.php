@@ -45,6 +45,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login_form_submit']))
                 header('Location: /');
                 exit;
             }
+            else
+            {
+                $errors['email'] = 'Email ou le mot de passe est incorrect';
+                $errors['password'] = 'Email ou le mot de passe est incorrect';
+            }   
 
         }
         else

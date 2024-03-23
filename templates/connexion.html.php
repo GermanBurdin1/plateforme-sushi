@@ -2,6 +2,7 @@
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-12 col-md-4">
+            <h1>Connexion</h1>
             <form method="POST">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>

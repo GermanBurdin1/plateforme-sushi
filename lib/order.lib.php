@@ -63,10 +63,41 @@ function getCommandsMeals(int $orderId)
 {
     require '../data/db-connect.php';
 
-    $query = $dbh->prepare('');
+    $query = $dbh->prepare('SELECT *
+    FROM meal
+    JOIN order_meal ON order_meal.id_meal = meal.id_meal
+    WHERE order_meal.id_order = :order_id');
     $query->execute([
         'order_id' => $orderId
     ]);
 
-    return $query->fetch();
+    return $query->fetchAll();
+}
+
+function getCommandsAddresses(int $orderId)
+{
+    require '../data/db-connect.php';
+
+    $query = $dbh->prepare('SELECT *
+    FROM address
+    JOIN `order` o ON o.id_billing_address = address.id_address
+    WHERE o.id_order = :order_id');
+    $query->execute([
+        'order_id' => $orderId
+    ]);
+    $billingAddress = $query->fetch();
+
+    $query = $dbh->prepare('SELECT *
+    FROM address
+    JOIN `order` o ON o.id_delivery_address = address.id_address
+    WHERE o.id_order = :order_id');
+    $query->execute([
+        'order_id' => $orderId
+    ]);
+    $deliveryAddress = $query->fetch();
+
+    return [
+        'billing' => $billingAddress,
+        'delivery' => $deliveryAddress
+    ];
 }

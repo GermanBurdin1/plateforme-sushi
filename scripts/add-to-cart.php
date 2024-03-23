@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     if(!empty($_POST['meal_id']) && !empty($_POST['qty']))
     {
-        // On vérifie qu'un panier existe en session
+        // On vérifie q'un panier existe en session
         if(isset($_SESSION['cart']))
         {
             $cart = $_SESSION['cart']; // On recupère les éléments du panier dans une variable
@@ -16,7 +16,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             // On vérifie si le produit est déjà dans le panier
             $meals = array_filter($cart, function($meal)
             {
-                //Функция array_filter сохраняет только те элементы $cart, для которых это условие возвращает true.
                 return $meal['meal_id'] == $_POST['meal_id'];
             });
 
@@ -39,7 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 ];
             }
         }
-        else // Si non on le crée et on stock le produit
+        else // Si non on le créer et on stock le produit
         {
             // On stock les données du panier en session
             $_SESSION['cart'][] = [
